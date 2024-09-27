@@ -5,7 +5,6 @@ return {
 	{ import = "astrocommunity.pack.rust" },
 	{ import = "astrocommunity.pack.cpp" },
 	{ import = "astrocommunity.motion.flash-nvim" },
-	{ import = "astrocommunity.scrolling.neoscroll-nvim" },
 	{ import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
 	{ import = "astrocommunity.lsp.actions-preview-nvim" },
 	{ import = "astrocommunity.editing-support.yanky-nvim" },

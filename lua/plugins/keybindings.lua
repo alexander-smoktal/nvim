@@ -1,27 +1,22 @@
 return {
-  { -- further customize the options set by the community
-    "p00f/clangd_extensions.nvim",
-    dependencies = {
-      "AstroNvim/astrocore",
-      opts = {
-        autocmds = {
-          clangd_custom_mappings = {
-            {
-              event = "LspAttach",
-              desc = "Load custom keybindings with clangd",
-              callback = function(args)
-                if assert(vim.lsp.get_client_by_id(args.data.client_id)).name == "clangd" then
-                  require("astrocore").set_mappings({
-                    n = {
-                      ["A-Left"] = { "C-o" },
-                      ["A-Right"] = { "C-i" },
-                    },
-                  }, { buffer = args.buf })
-                end
-              end,
-            },
-          },
-        },
+  "AstroNvim/astrocore",
+  ---@type AstroCoreOpts
+  opts = {
+    mappings = {
+      -- first key is the mode
+      n = {
+        ["<C-e>"] = { "<End>", desc = "Line end" },
+        ["<C-a>"] = { "^", desc = "Line begin" },
+        ["<C-s>"] = { ":w!<cr>", desc = "Save File" },
+      },
+      v = {
+        ["<C-e>"] = { "<End>", desc = "Line end" },
+        ["<C-a>"] = { "^", desc = "Line begin" },
+      },
+      i = {
+        ["<C-e>"] = { "<End>", desc = "Line end" },
+        ["<C-a>"] = { "<C-o>^", desc = "Line begin" },
+        ["<C-s>"] = { "<C-o>:w!<cr>i", desc = "Save File" },
       },
     },
   },

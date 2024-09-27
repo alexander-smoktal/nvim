@@ -10,7 +10,7 @@ return {
       show_current = false, -- Include current buffer in the list
       show_modified = true, -- Show buffer modified indicator
       modified_icon = "⬤", -- Character to use as modified indicator
-      grayout_current = true, -- Wheter to gray out current buffer entry
+      grayout_current = true, -- Whether to gray out current buffer entry
       force_delete = {}, -- List of filetypes / buftypes to use
       -- 'bdelete!' on, e.g. { 'terminal' }
       filter = nil, -- Function taking bufnr as parameter,
@@ -46,7 +46,7 @@ return {
 
     local mark_options = {
       filter = function(mark)
-        return mark:match "[a-zA-Z]" -- return true to disable
+        return mark:match("[a-zA-Z]") -- return true to disable
       end,
       -- A map of action to key that should be used to invoke it
       actions = {
@@ -57,12 +57,22 @@ return {
       },
     }
 
-    require("astrocore").set_mappings {
+    require("astrocore").set_mappings({
       n = {
-        ["<Leader>rb"] = { function() require("reach").buffers(options) end, desc = "List buffers" },
-        ["<Leader>rm"] = { function() require("reach").marks(mark_options) end, desc = "List marks" },
+        ["<Leader>rb"] = {
+          function()
+            require("reach").buffers(options)
+          end,
+          desc = "List buffers",
+        },
+        ["<Leader>rm"] = {
+          function()
+            require("reach").marks(mark_options)
+          end,
+          desc = "List marks",
+        },
       },
-    }
+    })
   end,
   opts = {
     notifications = true,
